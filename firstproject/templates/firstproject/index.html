@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>Login</title>
+	</head>{% block content %}
+	<body>
+	
+	
+		<form action="/process/" method="POST">{% csrf_token %}
+			Username:<input type="text" name="username"><br/>
+			Password:<input type="password" name="password"><br/>
+			<input type="submit" name="submit" value="Signin">
+			<a href="/register/">Register</a><br/>
+			<a href="#">Forgot Password</a>
+		</form>
+	</body>{% endblock %}
+</html>
