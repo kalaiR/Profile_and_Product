@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'^$','firstproject.views.index',name='index'),
     url(r'^process/$','firstproject.views.process',name='process'),
     url(r'^register/$','firstproject.views.register',name='register'),
+    url(r'^logout/$','firstproject.views.logout',name='logout')
 )

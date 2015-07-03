@@ -15,7 +15,7 @@ def process(request):
 		auth.login(request,user)
 		return render(request,'firstproject/success.html')
 	else:
-		return HttpResponse(username)
+		return HttpResponse('Invalid login')
 def register(request):
 	if request.method == 'POST':
 		form=UserCreationForm(request.POST)
@@ -27,3 +27,6 @@ def register(request):
 	args.update(csrf(request))
 	args['form']=UserCreationForm()
 	return render_to_response('firstproject/register.html',args)
+def logout(request):
+	auth.logout(request)
+	return render_to_response('firstproject/index.html')

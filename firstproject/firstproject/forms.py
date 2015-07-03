@@ -89,7 +89,7 @@ class UserCreationForm(forms.ModelForm):
             User.objects.get(username=username)
         except User.DoesNotExist:
             return username
-        raise forms.ValidationError(self.error_messages['duplicate_username'])
+        print 'duplicate_username'
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1", "")
