@@ -89,7 +89,7 @@ class UserCreationForm(forms.ModelForm):
             User.objects.get(username=username)
         except User.DoesNotExist:
             return username
-        print 'duplicate_username'
+        raise forms.ValidationError(self.error_messages['duplicate_username'])
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1", "")
@@ -213,8 +213,8 @@ class PasswordResetForm(forms.Form):
         return email
 
     def save(self, domain_override=None,
-             subject_template_name='registration/password_reset_subject.txt',
-             email_template_name='registration/password_reset_email.html',
+             subject_template_name='firstproject/password_reset_subject.txt',
+             email_template_name='firstproject/password_reset_email.html',
              use_https=False, token_generator=default_token_generator,
              from_email=None, request=None):
         """
