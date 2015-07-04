@@ -1,0 +1,13 @@
+{% load static from staticfiles %}
+{{user_id}}
+<html>
+	<head>
+		<title>Login</title>
+	</head>
+	<body>
+	<form action="/save/" method="POST">{% csrf_token %}
+	<h1>successfully</h1></form>
+	<a href=" /logout">Logout</a>
+	<a href="{% url userprofileedit user_id %}">Edit</a>
+	</body>
+	</html>
