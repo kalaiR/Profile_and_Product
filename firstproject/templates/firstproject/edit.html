@@ -5,7 +5,7 @@
 	<body>
 	
 	
-		<form action="{% url save userprofile.id %}" method="POST">{% csrf_token %}
+		<form action="{% url save_user userprofile.id %}" method="POST">{% csrf_token %}
 			Username:<input type="text" name="username" value="{{userprofile.username}}"><br/>
 			Password<input type="password" name="password1" value="{{userprofile.password1}}"><br/>
 			Confirm Password<input type="password" name="password2" value="{{userprofile.password2}}"><br/>
