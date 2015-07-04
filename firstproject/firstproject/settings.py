@@ -123,6 +123,13 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'testmail123sample@gmail.com'
+EMAIL_HOST_PASSWORD = 'testmail123'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'sastha@globalensolutions.com'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

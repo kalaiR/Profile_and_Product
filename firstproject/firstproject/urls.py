@@ -21,5 +21,8 @@ urlpatterns = patterns('',
     # url(r'^savechanges/$','firstproject.views.savechanges',name='savechanges'),
     url(r'^save/(?P<pk>\d+)$','firstproject.views.save',name='save'),
     url(r'^logout/$','firstproject.views.logout',name='logout'),
+    url(r'^change_password/$','firstproject.views.reset',name='reset'),
+    url(r'^success/$','firstproject.views.success',name='success'),
+
     
 )
