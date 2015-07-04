@@ -74,7 +74,7 @@ def save(request ,pk):
 	obj.first_name=request.POST.get('first_name')
 	obj.last_name=request.POST.get('last_name')
 	obj.save()
-	return render(request,'firstproject/update.html')
+	return render(request,'firstproject/update1.html')
 # def savechanges(request):
 # 	return render(request,'firstproject/update.html')
 
