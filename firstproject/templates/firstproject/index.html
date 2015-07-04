@@ -1,16 +1,19 @@
-<html>
-	<head>
-		<title>Login</title>
-	</head>{% block content %}
-	<body>
-	
-	
+{% extends "base.html" %}
+{% block content %}
+	<div class="login_holder">
 		<form action="/process/" method="POST">{% csrf_token %}
-			Username:<input type="text" name="username"><br/>
-			Password:<input type="password" name="password"><br/>
-			<input type="submit" name="submit" value="Signin">
-			<a href="/register/">Register</a><br/>
-			
+			<div class="username">
+				<label>Username:</label>
+				<input type="text" name="username" placeholder="Username" value=""><br/>
+			</div>
+			<div class="password"> 
+				<label>Password:</label>
+				<input type="password" name="password" placeholder="Password" value=""><br/>
+			</div>
+			<div class="action">
+				<input type="submit" name="submit" value="Signin">
+				<a href="/register/">Register</a><br/>
+			</div>
 		</form>
-	</body>{% endblock %}
-</html>
+	</div>
+{% endblock %}

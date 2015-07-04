@@ -64,18 +64,16 @@ class UserCreationForm(forms.ModelForm):
     }
     username = forms.RegexField(label=_("Username"), max_length=30,
         regex=r'^[\w.@+-]+$',
-        help_text = _("Required. ."),
-        error_messages = {
-            'invalid': _("This value may contain only letters, numbers and "
-                         "@/./+/-/_ characters.")})
+        help_text = _("Required."),
+        error_messages={'required': 'Enter User name'})
     password1 = forms.CharField(label=_("Password"),
-        widget=forms.PasswordInput)
+        widget=forms.PasswordInput,error_messages={'required': 'Enter Password 1'})
     password2 = forms.CharField(label=_("Password confirmation"),
         widget=forms.PasswordInput,
-        help_text = _("Enter the same password as above, for verification."))
-    email=forms.EmailField(label=_("Email"),required=True)
-    first_name = forms.CharField(label=_("First name"))
-    last_name = forms.CharField(label=_("Last name"))
+        help_text = _("Enter the same password as above, for verification."),error_messages={'required': 'Enter Password 1'})
+    email=forms.EmailField(label=_("Email"),required=True,error_messages={'required': 'Enter Email'})
+    first_name = forms.CharField(label=_("First name"),error_messages={'required': 'Enter Firstname'})
+    last_name = forms.CharField(label=_("Last name"),error_messages={'required': 'Enter Lastname'})
 
     class Meta:
         model = User
@@ -187,6 +185,12 @@ class AuthenticationForm(forms.Form):
 
     def get_user(self):
         return self.user_cache
+
+    def login(self, request):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        return user
 
 
 class PasswordResetForm(forms.Form):
