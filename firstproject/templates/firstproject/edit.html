@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>Edit</title>
+	</head>
+	<body>
+	
+	
+		<form action="{% url save_user userprofile.id %}" method="POST">{% csrf_token %}
+			Username:<input type="text" name="username" value="{{userprofile.username}}"><br/>
+			Password<input type="password" name="password1" value="{{userprofile.password1}}"><br/>
+			Confirm Password<input type="password" name="password2" value="{{userprofile.password2}}"><br/>
+			Email<input type="text" name="email" value="{{userprofile.email}}"><br/>
+			Firstname<input type="text" name="first_name" value="{{userprofile.first_name}}"><br/>
+			Lastname<input type="text" name="last_name" value="{{userprofile.last_name}}"><br/>
+			<input type="submit" name="submit" value="Save">
+		</form>
+		
+	</body>
+</html>

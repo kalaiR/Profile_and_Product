@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'product',
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

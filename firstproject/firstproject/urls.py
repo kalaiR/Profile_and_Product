@@ -16,10 +16,17 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$','firstproject.views.index',name='index'),
     url(r'^process/$','firstproject.views.process',name='process'),
+    url(r'^process1/(?P<pk>\d+)/$', 'firstproject.views.userprofileedit',name='userprofileedit'),
     url(r'^register/$','firstproject.views.register',name='register'),
+    # url(r'^savechanges/$','firstproject.views.savechanges',name='savechanges'),
+    url(r'^save_user/(?P<pk>\d+)/$','firstproject.views.save',name='save_user'),
     url(r'^logout/$','firstproject.views.logout',name='logout'),
     url(r'^change_password/$','firstproject.views.reset',name='reset'),
     url(r'^success/$','firstproject.views.success',name='success'),
-   
+    url(r'^product_detail/$', 'product.views.product_detail', name='product_detail'),
+    url(r'^submitquery/$', 'product.views.save',name='product_save'),
+    url(r'^details/$', 'product.views.details',name="details"),
+    url(r'^particular_details/(?P<pk>\d+)/$', 'product.views.particular_details',name="particular_details"),
+
     
 )

@@ -1,0 +1,49 @@
+<html>
+	<head></head>
+<body>
+	<div class="container">
+
+								
+
+								<ul style="float:left; list-style-type:none;">
+									<li style="float:left;">Product_name</li>
+									<li style="float:left;">price</li>
+									<li style="float:left;">model</li>
+									<li style="float:left;">Product_description</li>
+								</ul>
+								</br>
+			
+				
+								 				{%for details in detail %}
+								 				
+								 		<ul style="float:left; list-style-type:none;">
+												<li style="float:left;">
+													{{details.product_name}}
+												</li>
+												<li style="float:left;">
+													{{details.price}}
+												</li>
+												<li style="float:left;">
+													{{details.product_model}}
+												</li>
+												<li style="float:left;">
+													{{details.product_description}}
+												</li>
+												<li style="float:left;">
+													<a href="{% url particular_details details.id %}">view product details</a>
+												</li>
+
+										</ul>	</br>
+						
+												{%endfor%}
+									
+								<a href=" /logout">Logout</a>
+	</div><!--container-->
+
+</body>
+</html>
+								
+						
+
+				
+
