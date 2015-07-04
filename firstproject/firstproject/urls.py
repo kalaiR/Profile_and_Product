@@ -23,6 +23,10 @@ urlpatterns = patterns('',
     url(r'^logout/$','firstproject.views.logout',name='logout'),
     url(r'^change_password/$','firstproject.views.reset',name='reset'),
     url(r'^success/$','firstproject.views.success',name='success'),
+    url(r'^product_detail/$', 'product.views.product_detail', name='product_detail'),
+    url(r'^submitquery/$', 'product.views.save',name='product_save'),
+    url(r'^details/$', 'product.views.details',name="details"),
+    url(r'^particular_details/(?P<pk>\d+)/$', 'product.views.particular_details',name="particular_details"),
 
     
 )

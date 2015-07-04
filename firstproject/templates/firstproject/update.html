@@ -7,6 +7,7 @@
 	<body>
 	<form action="/save/" method="POST">{% csrf_token %}
 	<h1>successfully</h1></form>
+	<a href="{% url product_detail %}">add products</a>
 	<a href=" /logout">Logout</a>
 	<a href="{% url userprofileedit user_id %}">Edit</a>
 	</body>
