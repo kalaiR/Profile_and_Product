@@ -55,9 +55,7 @@ CREATE TABLE `auth_group_permissions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `group_id` (`group_id`,`permission_id`),
   KEY `auth_group_permissions_bda51c3c` (`group_id`),
-  KEY `auth_group_permissions_1e014c8f` (`permission_id`),
-  CONSTRAINT `group_id_refs_id_3cea63fe` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
-  CONSTRAINT `permission_id_refs_id_a7792de1` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+  KEY `auth_group_permissions_1e014c8f` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -84,8 +82,7 @@ CREATE TABLE `auth_permission` (
   `codename` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `content_type_id` (`content_type_id`,`codename`),
-  KEY `auth_permission_e4470c6e` (`content_type_id`),
-  CONSTRAINT `content_type_id_refs_id_728de91f` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+  KEY `auth_permission_e4470c6e` (`content_type_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -120,7 +117,7 @@ CREATE TABLE `auth_user` (
   `date_joined` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +126,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'admin','','','admin@admin.com','pbkdf2_sha256$10000$0nFlpQrLQ4MW$3mbMaJUlmUQuW42OQF5j7lTfUBeS2WqPXgbWgYbv/xc=',1,1,1,'2015-07-02 20:12:11','2015-07-02 14:03:12');
+INSERT INTO `auth_user` VALUES (1,'admin','','','admin@admin.com','pbkdf2_sha256$10000$0nFlpQrLQ4MW$3mbMaJUlmUQuW42OQF5j7lTfUBeS2WqPXgbWgYbv/xc=',1,1,1,'2015-07-04 09:52:33','2015-07-02 14:03:12'),(2,'ramya','ram','raj','rams@gmail.com','pbkdf2_sha256$10000$evVzTSt3owLG$w2fawu8iU6nn5D6Kom8X/5hsFoj34TSB62CG5ff5/CM=',0,1,0,'2015-07-04 09:44:59','2015-07-04 09:44:46'),(3,'ram','ram','raj','ram@gmail.com','pbkdf2_sha256$10000$dukv8U95Otw2$AW7enLVIQlqVPMJuFU71XaF9q3HdE4FcHV341toRY20=',0,1,0,'2015-07-04 09:47:13','2015-07-04 09:47:13'),(4,'sathish','sathish ','kumar','sati@gmail.com','pbkdf2_sha256$10000$zhmdV0NcqmIV$9odZgk5+M6pt7MA7tqDa4gfzR9v1waF/AgwFwqNLr0E=',0,1,0,'2015-07-04 11:21:41','2015-07-04 10:01:45'),(5,'srte','sares','aetrye','dfeg@gmail.com','pbkdf2_sha256$10000$yuZhpoeXymwf$YExoDDWryozFDnLCqiUi5YHSyZRkcwvyCGCkET+0tpo=',0,1,0,'2015-07-04 11:22:42','2015-07-04 11:22:42'),(6,'neethu','neethu','venba','neethu@gmail.com','pbkdf2_sha256$10000$gS7tXliY9AL2$9za6XzEFM+a4BciMT5pJQadUD0wDCs+g+X5DYrVd9s8=',0,1,0,'2015-07-06 05:46:33','2015-07-06 05:46:18');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,9 +144,7 @@ CREATE TABLE `auth_user_groups` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`group_id`),
   KEY `auth_user_groups_fbfc09f1` (`user_id`),
-  KEY `auth_user_groups_bda51c3c` (`group_id`),
-  CONSTRAINT `group_id_refs_id_f0ee9890` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
-  CONSTRAINT `user_id_refs_id_831107f1` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+  KEY `auth_user_groups_bda51c3c` (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -176,9 +171,7 @@ CREATE TABLE `auth_user_user_permissions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`permission_id`),
   KEY `auth_user_user_permissions_fbfc09f1` (`user_id`),
-  KEY `auth_user_user_permissions_1e014c8f` (`permission_id`),
-  CONSTRAINT `permission_id_refs_id_67e79cb` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  CONSTRAINT `user_id_refs_id_f2045483` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+  KEY `auth_user_user_permissions_1e014c8f` (`permission_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -209,9 +202,7 @@ CREATE TABLE `django_admin_log` (
   `change_message` longtext NOT NULL,
   PRIMARY KEY (`id`),
   KEY `django_admin_log_fbfc09f1` (`user_id`),
-  KEY `django_admin_log_e4470c6e` (`content_type_id`),
-  CONSTRAINT `content_type_id_refs_id_288599e6` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
-  CONSTRAINT `user_id_refs_id_c8665aa` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+  KEY `django_admin_log_e4470c6e` (`content_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -273,7 +264,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('057079c50b07b6ff2b133a3f395b964f','MTZkMDcxMzlhYWE3ZjMyNmQ1NmQ2YTcyZmExZWQ2ZDM5ZGNmNDNjNzqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2015-07-16 20:12:11');
+INSERT INTO `django_session` VALUES ('057079c50b07b6ff2b133a3f395b964f','MTZkMDcxMzlhYWE3ZjMyNmQ1NmQ2YTcyZmExZWQ2ZDM5ZGNmNDNjNzqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2015-07-16 20:12:11'),('a533dd8b704ac4493c3e3d175f6be99f','YmU0Yjk1OTIyNDVkMGY2MmM2ODVmMDQ4ODNmMjMyZWIyNGMxMWMzNzqAAn1xAS4=\n','2015-07-20 06:09:50');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -301,6 +292,33 @@ LOCK TABLES `django_site` WRITE;
 INSERT INTO `django_site` VALUES (1,'example.com','example.com');
 /*!40000 ALTER TABLE `django_site` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `product_product_detail`
+--
+
+DROP TABLE IF EXISTS `product_product_detail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `product_product_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(50) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `product_model` varchar(50) DEFAULT NULL,
+  `product_description` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_product_detail`
+--
+
+LOCK TABLES `product_product_detail` WRITE;
+/*!40000 ALTER TABLE `product_product_detail` DISABLE KEYS */;
+INSERT INTO `product_product_detail` VALUES (1,'bag1',450,'new','new bag'),(2,'bag2',456,'used','new bag2'),(3,'bag3',456,'new','new bag3'),(4,'shoe',780,'new','NEW SHOE'),(5,'pc',30000,'new','new pc'),(6,'bat',210,'new','new bat'),(7,'wr',54651,'used','frqe'),(8,'scooty',15000,'new','new scooty');
+/*!40000 ALTER TABLE `product_product_detail` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -311,4 +329,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-03 10:04:20
+-- Dump completed on 2015-07-06 12:08:38
