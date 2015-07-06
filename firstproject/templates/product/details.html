@@ -1,46 +1,48 @@
+<!DOCTYPE html>
 <html>
-	<head></head>
-<body>
-	<div class="container">
-
-								
-
-								<ul style="float:left; list-style-type:none;">
-									<li style="float:left;">Product_name</li>
-									<li style="float:left;">price</li>
-									<li style="float:left;">model</li>
-									<li style="float:left;">Product_description</li>
+		<head>
+			<meta charset="utf-8">
+		</head>
+		<body>
+			<div class="container" style="width:500px;height:500px;border:1px solid;">
+				
+								<ul style="float:left; list-style-type:none;text-align:center">
+									<li style="float:left;margin-left:10px;">name</li>
+									<li style="float:left;margin-left:35px;">price</li>
+									<li style="float:left;margin-left:50px;">model</li>
+									<li style="float:left;margin-left:70px;">description</li>
 								</ul>
 								</br>
-			
+								
 				
-								 				{%for details in detail %}
+					{%for details in detail %}
 								 				
 								 		<ul style="float:left; list-style-type:none;">
-												<li style="float:left;">
+												<li style="float:left;margin-left:10px;">
 													{{details.product_name}}
 												</li>
-												<li style="float:left;">
+												<li style="float:left;margin-left:35px;">
 													{{details.price}}
 												</li>
-												<li style="float:left;">
+												<li style="float:left;margin-left:50px;">
 													{{details.product_model}}
 												</li>
-												<li style="float:left;">
+												<li style="float:left;margin-left:70px;">
 													{{details.product_description}}
 												</li>
-												<li style="float:left;">
+												<li style="float:left;margin-left:85px;">
 													<a href="{% url particular_details details.id %}">view product details</a>
 												</li>
 
-										</ul>	</br>
-						
-												{%endfor%}
-									
-								<a href=" /logout">Logout</a>
-	</div><!--container-->
+										</ul>	
+											</br>						
+						{%endfor%}
+						<a href=" /logout">Logout</a>
+					
+				
+			</div><!--container-->
 
-</body>
+		</body>
 </html>
 								
 						
