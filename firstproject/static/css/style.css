@@ -1,0 +1,76 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background: #e7e7e7;
+}
+.fr{
+	float: right;
+}
+.fl{
+	float: left;
+}
+.container{
+	width: 960px;
+	margin:0 auto;
+}
+.login_holder{
+	width:auto;
+	text-align: center;
+	position: relative;
+}
+.login_holder,.register_holder form{
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	width: auto;
+  	height: auto;
+
+}
+.login_holder .username,.password,.action{
+	margin: 10px;
+}	
+.login_holder label{
+	font-size: 14 px;
+	padding: 5px;
+}
+.login_holder input[type="password"],input[type="text"],input[type="submit"]{
+	padding: 5px;
+}
+.login_holder input[type="submit"]{
+	background: #e7e7e7;
+	border: 1px solid grey;
+	border-radius: 5px;
+	width:50px;
+	font-size: 12px;
+}
+.login_holder .action a{
+	text-decoration: none;
+	padding: 5px;
+	border: 1px solid grey;
+	border-radius: 5px;
+	font-size: 12px;
+	color: #000;
+}
+.register_holder{
+	width:auto;
+	text-align: center;
+	position: relative;
+}
+.register_holder .username,.password,.action,.email,.fname,.lname{
+	margin: 10px;
+}
+.register_holder label{
+	font-size: 14px;
+	padding: 5px;
+	width: 50px;
+}
+.register_holder input[type="password"],input[type="text"],input[type="submit"]{
+	padding: 5px;
+}
+.register_holder input[type="submit"]{
+	background: #e7e7e7;
+	border: 1px solid grey;
+	border-radius: 5px;
+	width:50px;
+	font-size: 12px;
+}

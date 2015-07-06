@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib import auth
 from django.core.urlresolvers import reverse
 from django.template.response import TemplateResponse
@@ -54,8 +54,7 @@ def register(request):
 			form.save()
 			return HttpResponse('user created')
 		else:
-			return HttpResponse('Duplicate username')
-
+			return render(request, 'firstproject/register.html', {'form':form,})
 	args={}
 	args.update(csrf(request))
 	args['form']=UserCreationForm()

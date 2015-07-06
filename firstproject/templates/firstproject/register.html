@@ -1,21 +1,50 @@
-<html>
-	<head>
-		<title>Register</title>
-	</head>{% block content %}
-	<body>
-	{% if form.errors %}
-	<p>Error</p>
-	{% endif %}
-	
-		<form action="/register/" method="POST">{% csrf_token %}
-			<label>Username:</label>{{form.username}}<br/>
-			<label>Password</label>{{form.password1}}<br/>
-			<label>Confirm Password</label>{{form.password2}}<br/>
-			<label>Email</label>{{form.email}}<br/>
-			<label>Firstname</label>{{form.first_name}}<br/>
-			<label>Lastname</label>{{form.last_name}}<br/>
-			<input type="submit" name="submit" value="Signup">
-			
-		</form>
-	</body>{% endblock %}
-</html>
+{% extends "base.html" %}
+{% block content %}
+		<div class="register_holder">
+			<h1>Registration form</h1>
+			<form action="/register/" method="POST" autocomplete="off">{% csrf_token %}
+				{% if form.errors %}
+					{% if form.username.errors %}
+						{{ form.username.errors }}
+					{% elif form.password1.errors %}
+						{{ form.password1.errors }}
+					{% elif form.password2.errors %}
+						{{ form.password2.errors }}
+					{% elif form.email.errors %}
+						{{ form.email.errors }}
+					{% elif form.first_name.errors %}
+						{{ form.first_name.errors }}
+					{% else %}
+						{{ form.last_name.errors }}
+					{% endif %}
+				{% endif %}
+				<div class="username">
+					<div><label>Username</label></div>
+					<div>{{form.username}}</div>
+				</div>
+				<div class="password">
+					<div><label>Password</label></div>
+					<div>{{form.password1}}</div>
+				</div>
+				<div class="confirm_password">
+					<div><label>Confirm Password</label></div>
+					<div>{{form.password2}}</div>
+				</div>
+				<div class="email">
+					<div><label>Email</label></div>
+					<div>{{form.email}}</div>
+				</div>
+				<div class="fname">
+					<div><label>Firstname</label></div>
+					<div>{{form.first_name}}</div>
+				</div>
+				<div class="lname">
+					<div><label>Lastname</label></div>
+					<div>{{form.last_name}}</div>
+				</div>
+				<div class="action">
+					<input type="submit" name="submit" value="Signup">
+				</div>
+			</form>
+		</div>
+{% endblock %}
